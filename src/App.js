@@ -49,9 +49,9 @@ function App() {
 
   return (
     <>
-      <h1>Hello!</h1>
       {loading ? <Loader /> : data[currency] && 
       <>
+      <div>{Object.keys(data)[0]}</div>
         <div>{data[currency][vsCurrency]}</div>
         <div>{data[currency][`${vsCurrency}_24h_change`].toFixed(2)}%</div>
       </>
