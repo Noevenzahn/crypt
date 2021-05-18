@@ -1,4 +1,4 @@
-:root, html, body, input {
+:root, html, body, input, select, option {
     --background: #030D28;
     --field: #2D324E;
     --input: #4D5376;
@@ -20,6 +20,32 @@
 }
 
 /* vars für Abstände usw. festlegen? Können dann einfacher mit Mediaquerys geändert werden? */
+.loader {
+    display: flex;
+    align-items: center;
+    height: 82px;
+
+    font-size: 2rem;
+    color: var(--secundary-font);
+}
+
+.loader::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border: 5px solid var(--input);
+    border-top-color: var(--secundary-font);
+    margin-right: 15px;
+    border-radius: 50%;
+    animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(1turn);
+    }
+} 
+
 
 form {
     background-color: var(--field);
@@ -60,7 +86,7 @@ p {
     
 }
 
-input {
+input, select, option {
     background-color: var(--input);
     border: none;
     border-radius: 15px;
@@ -70,7 +96,7 @@ input {
 
     font-size: 1.5rem;
     letter-spacing: 0.5px;
-
+    color: var(--primary-font);
 }
 
 .comparison-currency {

@@ -21,7 +21,9 @@ function App() {
   const [loading, setLoading] = useState(true);
   
   const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=${vsCurrency}&include_24hr_change=true&include_last_updated_at=true`;
+  // id of coins, comma-separated if querying more than 1 coin!
 
+  
   const fetchPrice = (apiUrl) => {
     axios.get(apiUrl) 
     .then ((response) => {
@@ -59,11 +61,25 @@ function App() {
         }
 
         <p>currency</p>
-        <input list="currency" onChange={handleChangeCurrency} />
+        {/* <input list="currency" onChange={handleChangeCurrency} />
         <datalist id="currency">
           <option value="bitcoin" />
           <option value="ethereum" />
-        </datalist> 
+        </datalist>  */}
+
+        <select id="currency" onChange={handleChangeCurrency}>
+          {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
+          <option value="bitcoin">Bitcoin</option>
+          <option value="ethereum">Ethereum</option>
+          <option value="litecoin">Litecoin</option>
+          <option value="bitcoin-cash">Bitcoin Cash</option>
+          <option value="cardano">Cardano</option>
+          <option value="binancecoin">Binance Coin</option>
+          <option value="dogecoin">Dogecoin</option>
+          <option value="tether">Tether</option>
+          <option value="stellar">Stellar</option>
+          <option value="ripple">Ripple</option>
+        </select> 
 
         <p>comparison</p>
         <input className="comparison-currency" value={vsCurrency} onChange={handleChangeVsCurrency} />
