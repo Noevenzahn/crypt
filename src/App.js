@@ -49,22 +49,26 @@ function App() {
 
   return (
     <>
-      {loading ? <Loader /> : data[currency] && 
-      <>
-      <div>{Object.keys(data)[0]}</div>
-        <div>{data[currency][vsCurrency]}</div>
-        <div>{data[currency][`${vsCurrency}_24h_change`].toFixed(2)}%</div>
-      </>
-      }
-      
-      <input id="1" value={currency} onChange={handleChangeCurrency} />
-      <input id="2" value={vsCurrency} onChange={handleChangeVsCurrency} />
+      <form>
+        {loading ? <Loader /> : data[currency] && 
+        <div>
+          <p className="currency-name">{Object.keys(data)[0]}</p>
+          <p className="currency-price"> <span className="symbol">$</span>{data[currency][vsCurrency]}</p>
+          {/* <div>{data[currency][`${vsCurrency}_24h_change`].toFixed(2)}%</div> */}
+        </div>
+        }
 
-      <input list="currency" onChange={handleChangeCurrency} />
-      <datalist id="currency">
-        <option value="bitcoin" />
-        <option value="ethereum" />
-      </datalist> 
+        <p>currency</p>
+        <input list="currency" onChange={handleChangeCurrency} />
+        <datalist id="currency">
+          <option value="bitcoin" />
+          <option value="ethereum" />
+        </datalist> 
+
+        <p>comparison</p>
+        <input className="comparison-currency" value={vsCurrency} onChange={handleChangeVsCurrency} />
+        <button>+</button>
+      </form>
     </> // ggf. values mit iterator auf list api call um dynamische Verfügbarkeiten am start zu haben
   )
 } 
