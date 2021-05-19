@@ -56,33 +56,40 @@ function App() {
         <div>
           <p className="currency-name">{Object.keys(data)[0]}</p>
           <p className="currency-price"> <span className="symbol">$</span>{data[currency][vsCurrency]}</p>
-          {/* <div>{data[currency][`${vsCurrency}_24h_change`].toFixed(2)}%</div> */}
+          {/* Symbol dynamisch ändern */}
         </div>
         }
 
         <p>currency</p>
-        {/* <input list="currency" onChange={handleChangeCurrency} />
-        <datalist id="currency">
-          <option value="bitcoin" />
-          <option value="ethereum" />
-        </datalist>  */}
-
-        <select id="currency" onChange={handleChangeCurrency}>
-          {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
-          <option value="bitcoin">Bitcoin</option>
-          <option value="ethereum">Ethereum</option>
-          <option value="litecoin">Litecoin</option>
-          <option value="bitcoin-cash">Bitcoin Cash</option>
-          <option value="cardano">Cardano</option>
-          <option value="binancecoin">Binance Coin</option>
-          <option value="dogecoin">Dogecoin</option>
-          <option value="tether">Tether</option>
-          <option value="stellar">Stellar</option>
-          <option value="ripple">Ripple</option>
-        </select> 
+        <div className="select-wrapper">
+            <select id="currency" onChange={handleChangeCurrency}>
+              {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
+              <option value="ethereum">(ETH) Ethereum</option>
+              <option value="bitcoin">(BTC) Bitcoin</option>
+              <option value="litecoin">(LTC) Litecoin</option>
+              <option value="bitcoin-cash">(BCH) Bitcoin Cash</option>
+              <option value="cardano">(ADA) Cardano</option>
+              <option value="binancecoin">(BNB) Binance Coin</option>
+              <option value="dogecoin">(DOGE) Dogecoin</option>
+              <option value="tether">(USDT) Tether</option>
+              <option value="stellar">(XLM) Stellar</option>
+              <option value="ripple">(XRP) Ripple</option>
+            </select> 
+        </div>
 
         <p>comparison</p>
-        <input className="comparison-currency" value={vsCurrency} onChange={handleChangeVsCurrency} />
+        <div className="select-wrapper last">
+            <select id="comparison-currency" onChange={handleChangeVsCurrency}>
+              {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
+              <option value="usd">(USD) US-Dollar</option>
+              <option value="eur">(EUR) Euro</option>
+              <option value="btc">(BTC) Bitcoin</option>
+              <option value="pln">(PLN) Złoty</option>
+              <option value="aud">(AUD) Australian Dollar</option>
+              <option value="gbp">(GBP) Great British Pound</option>
+              <option value="jpy">(JPY) Japanese Yen</option>
+            </select> 
+        </div>
         <button>+</button>
       </form>
     </> // ggf. values mit iterator auf list api call um dynamische Verfügbarkeiten am start zu haben
