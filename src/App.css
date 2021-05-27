@@ -1,5 +1,5 @@
 :root, html, body, input, select, option {
-    --background: #030D28;
+    --background: #030b21;
     --field: #2D324E;
     --input: #4D5376;
     
@@ -47,13 +47,16 @@
 } 
 
 
-form {
+.field {
     background-color: var(--field);
     padding: 20px;
     margin: 20px;
     border-radius: 21px;
     max-width: 450px;
     position: relative;
+}
+form.field {
+    margin-bottom: 40px;
 }
 
 p {
@@ -154,3 +157,5 @@ button:hover {
     background-color: var(--secundary-font);
     color: var(--field);
 }
+
+/* Focus, Active usw. states hinzufügen */

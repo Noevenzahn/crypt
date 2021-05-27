@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Loader from "./components/Loader"
+import CurrencyField from "./components/CurrencyField"
+import List from "./components/List"
 
 import "./App.css";
 
 
 function App() {
 
-  //Why do I have to set the inital value?!
   const [data, setData] = useState({ 
     "currency": {
       "vs-currency": "",
@@ -19,6 +20,9 @@ function App() {
   const [currency, setCurrency] = useState("ethereum");
   const [vsCurrency, setVsCurrency] = useState("usd");
   const [loading, setLoading] = useState(true);
+  const [add, setAdd] = useState(false);
+  const [list, setList] = useState([]);
+  const [price, setPrice] = useState("");
   
   const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=${vsCurrency}&include_24hr_change=true&include_last_updated_at=true`;
   // id of coins, comma-separated if querying more than 1 coin!
@@ -27,9 +31,10 @@ function App() {
   const fetchPrice = (apiUrl) => {
     axios.get(apiUrl) 
     .then ((response) => {
-      const price = response.data; // .data is needed because of axios (https://axios-http.com/docs/res_schema)
-            setData(price); 
+      const data = response.data; // .data is needed because of axios (https://axios-http.com/docs/res_schema)
+            setData(data); 
             setLoading(false);
+            setPrice(data[currency][vsCurrency]);
     })
     .catch((error) => {
         console.error();
@@ -49,13 +54,26 @@ function App() {
     setLoading(true)
   };
 
+  const addField = () => {
+    setAdd(true);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newItem = {id: new Date().getTime().toString(), currency, vsCurrency, price: price,};
+    setList([...list, newItem]);
+  }
+
+  console.log(list);
+
   return (
     <>
-      <form>
+      <form className="field" onSubmit={handleSubmit}>
         {loading ? <Loader /> : data[currency] && 
         <div>
           <p className="currency-name">{Object.keys(data)[0]}</p>
-          <p className="currency-price"> <span className="symbol">$</span>{data[currency][vsCurrency]}</p>
+          <p className="currency-price"> <span className="symbol">$</span>{price}</p>
           {/* Symbol dynamisch ändern */}
         </div>
         }
@@ -80,20 +98,25 @@ function App() {
         <p>comparison</p>
         <div className="select-wrapper last">
             <select id="comparison-currency" onChange={handleChangeVsCurrency}>
-              {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
-              <option value="usd">(USD) US-Dollar</option>
-              <option value="eur">(EUR) Euro</option>
-              <option value="btc">(BTC) Bitcoin</option>
-              <option value="pln">(PLN) Złoty</option>
-              <option value="aud">(AUD) Australian Dollar</option>
-              <option value="gbp">(GBP) Great British Pound</option>
-              <option value="jpy">(JPY) Japanese Yen</option>
+                {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
+                <option value="usd">(USD) US-Dollar</option>
+                <option value="eur">(EUR) Euro</option>
+                <option value="btc">(BTC) Bitcoin</option>
+                <option value="pln">(PLN) Złoty</option>
+                <option value="aud">(AUD) Australian Dollar</option>
+                <option value="gbp">(GBP) Great British Pound</option>
+                <option value="jpy">(JPY) Japanese Yen</option>
             </select> 
         </div>
-        <button>+</button>
+        <button type="submit">+</button>
       </form>
+
+      {list.length > 0 && (
+        <div>
+          <List list={list} />
+        </div>
+      )}
     </> // ggf. values mit iterator auf list api call um dynamische Verfügbarkeiten am start zu haben
   )
 } 
-//Richtiges onSubmit usw?
 export default App;
