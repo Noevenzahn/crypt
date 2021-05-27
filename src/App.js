@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Loader from "./components/Loader"
-import CurrencyField from "./components/CurrencyField"
 import List from "./components/List"
 
 import "./App.css";
@@ -20,7 +19,6 @@ function App() {
   const [currency, setCurrency] = useState("ethereum");
   const [vsCurrency, setVsCurrency] = useState("usd");
   const [loading, setLoading] = useState(true);
-  const [add, setAdd] = useState(false);
   const [list, setList] = useState([]);
   const [price, setPrice] = useState("");
   
@@ -54,9 +52,6 @@ function App() {
     setLoading(true)
   };
 
-  const addField = () => {
-    setAdd(true);
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
