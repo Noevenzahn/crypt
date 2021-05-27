@@ -9,6 +9,15 @@ import "./App.css";
 
 function App() {
 
+  const getLocalStorage = () => {
+    let list = localStorage.getItem("list");
+    if(list) {
+      return JSON.parse(localStorage.getItem("list"));
+    } else {
+      return []
+    }
+  }
+
   const [data, setData] = useState({ 
     "currency": {
       "vs-currency": "",
@@ -19,7 +28,7 @@ function App() {
   const [currency, setCurrency] = useState("ethereum");
   const [vsCurrency, setVsCurrency] = useState("usd");
   const [loading, setLoading] = useState(true);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage()); // getLocalStorage()
   const [price, setPrice] = useState("");
   
   const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=${vsCurrency}&include_24hr_change=true&include_last_updated_at=true`;
@@ -56,11 +65,21 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = {id: new Date().getTime().toString(), currency, vsCurrency, price: price,};
+    const newItem = {id: new Date().getTime().toString(), currency, vsCurrency};
     setList([...list, newItem]);
   }
 
+  // useEffect(()=> {
+  //   setList([])
+  // }, [])
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list))
+  }, [list])
+
+
   console.log(list);
+
 
   return (
     <>
@@ -105,7 +124,7 @@ function App() {
         </div>
         <button type="submit">+</button>
       </form>
-
+      {/* <button onClick={setList([])} type="button">-</button> */}
       {list.length > 0 && (
         <div>
           <List list={list} />
