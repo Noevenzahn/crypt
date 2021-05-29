@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Loader from "./components/Loader"
 import List from "./components/List"
-
 import "./App.css";
+import Ethereum from "./graphics/Ethereum.svg";
+import BitcoinCash from "./graphics/BitcoinCash.png";
+import Bitcoin from "./graphics/Bitcoin.svg";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
   const [currency, setCurrency] = useState("ethereum");
   const [vsCurrency, setVsCurrency] = useState("usd");
   const [loading, setLoading] = useState(true);
-  const [list, setList] = useState(getLocalStorage()); // getLocalStorage()
+  const [list, setList] = useState(getLocalStorage()); 
   const [price, setPrice] = useState("");
   
   const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=${vsCurrency}&include_24hr_change=true&include_last_updated_at=true`;
@@ -61,7 +62,6 @@ function App() {
     setLoading(true)
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -73,64 +73,80 @@ function App() {
   //   setList([])
   // }, [])
 
+  const handleLogo = currency => {
+    switch(currency) {
+      case "ethereum":
+        return Ethereum;
+      case "bitcoin":
+        return Bitcoin;
+      case "bitcoin-cash":
+        return BitcoinCash;
+      default: 
+    }
+  }
+  const handleSymbol = vsCurrency => {
+    switch(vsCurrency) {
+      case "usd":
+        return "$";
+      case "eur":
+        return "€";
+      case "gbp":
+        return "£";
+        case "jpy":
+          return "¥";
+        case "btc":
+          return "₿";
+      default: 
+    }
+  }
+
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list))
   }, [list])
-
-
-  console.log(list);
-
 
   return (
     <>
       <form className="field" onSubmit={handleSubmit}>
         {loading ? <Loader /> : data[currency] && 
-        <div>
-          <p className="currency-name">{Object.keys(data)[0]}</p>
-          <p className="currency-price"> <span className="symbol">$</span>{price}</p>
-          {/* Symbol dynamisch ändern */}
+        <div className="currency-container">
+          <img alt="" src={handleLogo(currency)} />
+          <div>
+            <p className="currency-name">{Object.keys(data)[0]}</p>
+            <p className="currency-price"> <span className="symbol">{handleSymbol(vsCurrency)}</span>{price}</p>
+          </div>
         </div>
         }
 
         <p>currency</p>
         <div className="select-wrapper">
             <select id="currency" onChange={handleChangeCurrency}>
-              {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
               <option value="ethereum">(ETH) Ethereum</option>
               <option value="bitcoin">(BTC) Bitcoin</option>
               <option value="litecoin">(LTC) Litecoin</option>
               <option value="bitcoin-cash">(BCH) Bitcoin Cash</option>
-              <option value="cardano">(ADA) Cardano</option>
-              <option value="binancecoin">(BNB) Binance Coin</option>
               <option value="dogecoin">(DOGE) Dogecoin</option>
-              <option value="tether">(USDT) Tether</option>
-              <option value="stellar">(XLM) Stellar</option>
-              <option value="ripple">(XRP) Ripple</option>
             </select> 
         </div>
 
         <p>comparison</p>
         <div className="select-wrapper last">
             <select id="comparison-currency" onChange={handleChangeVsCurrency}>
-                {/* Mit Iterator alle verfügbaren Optionen auflisten? */}
                 <option value="usd">(USD) US-Dollar</option>
                 <option value="eur">(EUR) Euro</option>
-                <option value="btc">(BTC) Bitcoin</option>
-                <option value="pln">(PLN) Złoty</option>
-                <option value="aud">(AUD) Australian Dollar</option>
                 <option value="gbp">(GBP) Great British Pound</option>
                 <option value="jpy">(JPY) Japanese Yen</option>
+                <option value="btc">(BTC) Bitcoin</option>
             </select> 
         </div>
         <button type="submit">+</button>
       </form>
-      {/* <button onClick={setList([])} type="button">-</button> */}
+
       {list.length > 0 && (
         <div>
-          <List list={list} />
+          <List list={list} setList={setList} />
         </div>
       )}
-    </> // ggf. values mit iterator auf list api call um dynamische Verfügbarkeiten am start zu haben
+    </> 
   )
 } 
 export default App;

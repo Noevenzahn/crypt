@@ -1,11 +1,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Ethereum from "../graphics/Ethereum.svg";
+import BitcoinCash from "../graphics/BitcoinCash.png";
+import Bitcoin from "../graphics/Bitcoin.svg";
 
-function List({ list }) {
+function List({ list, setList }) {
 
-    const [loading, setLoading] = useState(true);
-    //   const [price, setPrice] = useState("");
     const [priceList, setPriceList] = useState([]);
+
+    const handleLogo = currency => {
+        switch(currency) {
+          case "ethereum":
+            return Ethereum;
+          case "bitcoin":
+            return Bitcoin;
+          case "bitcoin-cash":
+            return BitcoinCash;
+          default: 
+        }
+      }
+      const handleSymbol = vsCurrency => {
+        switch(vsCurrency) {
+          case "usd":
+            return "$";
+          case "eur":
+            return "€";
+          case "gbp":
+            return "£";
+            case "jpy":
+              return "¥";
+            case "btc":
+              return "₿";
+          default: 
+        }
+      }
 
     useEffect(() => {
         const fetch = async () => {
@@ -16,7 +44,6 @@ function List({ list }) {
                 let response = await axios.get(apiUrl);
                 let { data } = response;
                 let price = await data[currency][vsCurrency];
-                console.log(price);
 
                 return { id, currency, vsCurrency, price };
             }));
@@ -26,20 +53,21 @@ function List({ list }) {
         fetch();
     }, [list]);
 
-
-
-
-
     return (
         <>
         {
             priceList.map(({ id, currency, vsCurrency, price }) => {
                 return (
                     <div key={id} className="field">
-                        <p className="currency-name">{currency} {vsCurrency}</p>
-                        <p className="currency-price"><span className="symbol">$</span>{price}</p>
-                        {console.log(price)}
-                    </div>
+                            <div className="currency-container">
+                            <img alt="" src={handleLogo(currency)} />
+                            <div>
+                            <p className="currency-name">{currency}</p>
+                            <p className="currency-price"><span className="symbol">{handleSymbol(vsCurrency)}</span>{price}</p>
+                            </div>
+                            <button type="button" onClick={()=> setList(list.filter((item) => item.id !== id))}>-</button>
+                        </div>
+                    </div> 
                 )
             })
         }

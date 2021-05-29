@@ -87,7 +87,7 @@ p {
     font-size: 1.5rem;
     color: var(--secundary-font);
     letter-spacing: 1px;
-    
+    text-transform: none;
 }
 
 input, select, option {
@@ -156,6 +156,17 @@ button {
 button:hover {
     background-color: var(--secundary-font);
     color: var(--field);
+}
+
+.currency-container {
+    display: flex;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    margin-top: 2px;
 }
 
 /* Focus, Active usw. states hinzufügen */
