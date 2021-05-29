@@ -6,6 +6,8 @@ import "./App.css";
 import Ethereum from "./graphics/Ethereum.svg";
 import BitcoinCash from "./graphics/BitcoinCash.png";
 import Bitcoin from "./graphics/Bitcoin.svg";
+import Litecoin from "./graphics/Litecoin.png";
+import Dogecoin from "./graphics/Dogecoin.png";
 
 
 function App() {
@@ -81,6 +83,10 @@ function App() {
         return Bitcoin;
       case "bitcoin-cash":
         return BitcoinCash;
+        case "litecoin":
+          return Litecoin;
+          case "dogecoin":
+            return Dogecoin;
       default: 
     }
   }
