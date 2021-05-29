@@ -3,22 +3,28 @@ import axios from "axios";
 import Ethereum from "../graphics/Ethereum.svg";
 import BitcoinCash from "../graphics/BitcoinCash.png";
 import Bitcoin from "../graphics/Bitcoin.svg";
+import Litecoin from "../graphics/Litecoin.png";
+import Dogecoin from "../graphics/Dogecoin.png";
 
 function List({ list, setList }) {
 
     const [priceList, setPriceList] = useState([]);
 
     const handleLogo = currency => {
-        switch(currency) {
-          case "ethereum":
-            return Ethereum;
-          case "bitcoin":
-            return Bitcoin;
-          case "bitcoin-cash":
-            return BitcoinCash;
-          default: 
-        }
+      switch(currency) {
+        case "ethereum":
+          return Ethereum;
+        case "bitcoin":
+          return Bitcoin;
+        case "bitcoin-cash":
+          return BitcoinCash;
+          case "litecoin":
+            return Litecoin;
+            case "dogecoin":
+              return Dogecoin;
+        default: 
       }
+    }
       const handleSymbol = vsCurrency => {
         switch(vsCurrency) {
           case "usd":
