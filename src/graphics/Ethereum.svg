@@ -1,35 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created with Inkscape (http://www.inkscape.org/) by Marsupilami -->
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="482"
-   height="768"
-   viewBox="-2.77410003 -2.77410003 98.01820106 156.13971006"
-   id="svg3314">
-  <defs
-     id="defs3316" />
-  <path
-     d="M 46.22125,55.68413 0,76.69288 46.22125,104.01413 92.4425,76.69288 46.22125,55.68413 z"
-     id="path3078"
-     style="opacity:0.60000598;fill:#010101;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-  <path
-     d="m 3.7e-4,76.6925 46.22125,27.32125 0,-48.33 L 46.22162,0 3.7e-4,76.6925 z"
-     id="path3094"
-     style="opacity:0.44999701;fill:#010101;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-  <path
-     d="m 46.22125,0 0,55.68375 0,48.33 L 92.4425,76.6925 46.22125,0 z"
-     id="path3110"
-     style="opacity:0.80000299;fill:#010101;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-  <path
-     d="m 3.7e-4,85.45725 46.22125,65.13375 0,-37.82625 L 3.7e-4,85.45725 z"
-     id="path3126"
-     style="opacity:0.44999701;fill:#010101;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-  <path
-     d="m 46.22125,112.76525 0,37.82625 L 92.47,85.45775 46.22125,112.76525 z"
-     id="path3142"
-     style="opacity:0.80000299;fill:#010101;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="svg3314" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 765.4 765.4"
+	 style="enable-background:new 0 0 765.4 765.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#685CF2;}
+	.st1{opacity:0.6;fill:#010101;enable-background:new    ;}
+	.st2{opacity:0.45;fill:#010101;enable-background:new    ;}
+	.st3{opacity:0.8;fill:#010101;enable-background:new    ;}
+</style>
+<circle class="st0" cx="382.7" cy="382.7" r="382.7"/>
+<g>
+	<path id="path3078" class="st1" d="M382.6,301.7l-190.9,86.7l190.9,112.8l190.9-112.8L382.6,301.7z"/>
+	<path id="path3094" class="st2" d="M191.8,388.4l190.9,112.8V301.7V71.8L191.8,388.4z"/>
+	<path id="path3110" class="st3" d="M382.6,71.8v229.9v199.6l190.9-112.8L382.6,71.8z"/>
+	<path id="path3126" class="st2" d="M191.8,424.6l190.9,268.9V537.4L191.8,424.6z"/>
+	<path id="path3142" class="st3" d="M382.6,537.4v156.2l191-268.9L382.6,537.4z"/>
+</g>
 </svg>
-<!-- version: 20110311, original size: 92.470001 150.59151, border: 3% -->

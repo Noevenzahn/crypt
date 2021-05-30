@@ -2,6 +2,9 @@
     --background: #030b21;
     --field: #2D324E;
     --input: #4D5376;
+
+    --field-background-positive: #2D404E;
+    --field-background-negative: #362D4E;
     
     --secundary-font: #ABB2DA;
     --primary-font: #FFFFFF;
@@ -51,12 +54,21 @@
     background-color: var(--field);
     padding: 20px;
     margin: 20px;
-    border-radius: 21px;
+    border-radius: 25px;
     max-width: 450px;
     position: relative;
 }
 form.field {
     margin-bottom: 40px;
+}
+div.field {
+    padding: 15px 20px 10px 20px;
+}
+.field-positive {
+    background-color: var(--field-background-positive);
+}
+.field-negative {
+    background-color: var(--field-background-negative);
 }
 
 p {
@@ -88,6 +100,32 @@ p {
     color: var(--secundary-font);
     letter-spacing: 1px;
     text-transform: none;
+}
+
+.change {
+    width: 70px;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+    top: 39px;
+}
+.positive {
+    background-color: var(--positive-value-background);
+}
+.positive p {
+    margin: 0 0 0 5px;
+    color: var(--positive-value-font);
+}
+.negative {
+    background-color: var(--negative-value-background);
+}
+.negative p {
+    margin: 0;
+    color: var(--negative-value-font);
 }
 
 input, select, option {

@@ -50,8 +50,10 @@ function List({ list, setList }) {
                 let response = await axios.get(apiUrl);
                 let { data } = response;
                 let price = await data[currency][vsCurrency];
+                let change = await data[currency][`${vsCurrency}_24h_change`].toFixed(2);
+                console.log(change)
 
-                return { id, currency, vsCurrency, price };
+                return { id, currency, vsCurrency, price, change };
             }));
 
             setPriceList(fetchedPrice);
@@ -62,16 +64,19 @@ function List({ list, setList }) {
     return (
         <>
         {
-            priceList.map(({ id, currency, vsCurrency, price }) => {
+            priceList.map(({ id, currency, vsCurrency, price, change }) => {
                 return (
-                    <div key={id} className="field">
+                    <div key={id} className={change >= 0 ? "field field-positive" : "field field-negative"}>
                             <div className="currency-container">
                             <img alt="" src={handleLogo(currency)} />
                             <div>
                             <p className="currency-name">{currency}</p>
                             <p className="currency-price"><span className="symbol">{handleSymbol(vsCurrency)}</span>{price}</p>
                             </div>
-                            <button type="button" onClick={()=> setList(list.filter((item) => item.id !== id))}>-</button>
+                            <div className={ change >= 0 ? "change positive":"change negative"}>
+                              <p>{change}%</p>
+                            </div>
+                            {/* <button type="button" onClick={()=> setList(list.filter((item) => item.id !== id))}>-</button> */}
                         </div>
                     </div> 
                 )

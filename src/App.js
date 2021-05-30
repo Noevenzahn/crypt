@@ -35,8 +35,6 @@ function App() {
   const [price, setPrice] = useState("");
   
   const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=${vsCurrency}&include_24hr_change=true&include_last_updated_at=true`;
-  // id of coins, comma-separated if querying more than 1 coin!
-
   
   const fetchPrice = (apiUrl) => {
     axios.get(apiUrl) 
@@ -71,10 +69,6 @@ function App() {
     setList([...list, newItem]);
   }
 
-  // useEffect(()=> {
-  //   setList([])
-  // }, [])
-
   const handleLogo = currency => {
     switch(currency) {
       case "ethereum":
@@ -83,10 +77,10 @@ function App() {
         return Bitcoin;
       case "bitcoin-cash":
         return BitcoinCash;
-        case "litecoin":
-          return Litecoin;
-          case "dogecoin":
-            return Dogecoin;
+      case "litecoin":
+        return Litecoin;
+      case "dogecoin":
+        return Dogecoin;
       default: 
     }
   }
