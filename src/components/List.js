@@ -51,8 +51,7 @@ function List({ list, setList }) {
                 let { data } = response;
                 let price = await data[currency][vsCurrency];
                 let change = await data[currency][`${vsCurrency}_24h_change`].toFixed(2);
-                console.log(change)
-
+                
                 return { id, currency, vsCurrency, price, change };
             }));
 
