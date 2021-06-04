@@ -51,6 +51,7 @@ function App() {
   
   useEffect(() => {
     fetchPrice(apiUrl);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency, vsCurrency, apiUrl]);
 
   const handleChangeCurrency = (e) => {
@@ -99,6 +100,14 @@ function App() {
       default: 
     }
   }
+
+  // const clearList = () => {
+  //   setList([]);
+  // }
+  // const removeItem = (id) => {
+  //   setList(list.filter((item) => item.id !== id));
+  // }
+
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list))

@@ -53,16 +53,16 @@
 .field {
     background-color: var(--field);
     padding: 20px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 25px;
     max-width: 450px;
     position: relative;
 }
 form.field {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 div.field {
-    padding: 15px 20px 10px 20px;
+    padding: 12px 17px 7px 12px;
 }
 .field-positive {
     background-color: var(--field-background-positive);
@@ -77,41 +77,41 @@ p {
     text-transform: uppercase;
     letter-spacing: 1.5px;
 
-    margin: 15px 0 5px 15px;
+    margin: 15px 0 5px 17px;
 }
 .currency-name {
     margin: 0;
 
-    font-size: 1.05rem;
+    font-size: 0.95rem;
 }
 
 .currency-price {
     margin: -7px 0 0 0;
 
-    font-size: 3.3rem;
+    font-size: 2.3rem;
     color: var(--primary-font);
-    letter-spacing: 3px;
 }
 .symbol {
     float: left;
-    margin: 9px 5px 0 0;
+    margin: 5px 5px 0 0;
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--secundary-font);
     letter-spacing: 1px;
     text-transform: none;
 }
 
 .change {
-    width: 70px;
+    /* width: 65px; */
     height: 30px;
     border-radius: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 25px;
-    top: 39px;
+    right: 20px;
+    top: 27px;
+    padding: 1px 8px;
 }
 .positive {
     background-color: var(--positive-value-background);
@@ -136,7 +136,7 @@ input, select, option {
     width: 100%;
     padding: 0 0 2px 15px;
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
     color: var(--primary-font);
 }
@@ -154,14 +154,14 @@ select {
 }
 .select-wrapper::after {
     content: "";
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-bottom: solid var(--secundary-font) 4px;
     border-right: solid var(--secundary-font) 4px;
     display: inline-block;
     position: absolute;
     right: 20px;
-    top: 11px;
+    top: 12px;
     transform: rotate(45deg);
 }
 
@@ -182,7 +182,7 @@ button {
     cursor: pointer;
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    bottom: 21px;
 
     color: var(--secundary-font);
     font-size: 3rem;
@@ -198,13 +198,14 @@ button:hover {
 
 .currency-container {
     display: flex;
+    align-items: center;
 }
 
 img {
-    width: 70px;
-    height: 70px;
-    margin-right: 20px;
-    margin-top: 3px;
+    width: 60px;
+    height: 60px;
+    margin-right: 17px;
+    margin-bottom: 5px;
 }
 
 /* Focus, Active usw. states hinzufügen */
