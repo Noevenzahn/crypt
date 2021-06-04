@@ -42,7 +42,8 @@ function App() {
       const data = response.data; // .data is needed because of axios (https://axios-http.com/docs/res_schema)
             setData(data); 
             setLoading(false);
-            setPrice(data[currency][vsCurrency]);
+            const roundOne = (n, d) => Math.round(n * Math.pow(10, d)) / Math.pow(10, d);
+            setPrice(roundOne(data[currency][vsCurrency], 6));
     })
     .catch((error) => {
         console.error();

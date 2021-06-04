@@ -50,6 +50,8 @@ function List({ list, setList }) {
                 let response = await axios.get(apiUrl);
                 let { data } = response;
                 let price = await data[currency][vsCurrency];
+                const roundOne = (n, d) => Math.round(n * Math.pow(10, d)) / Math.pow(10, d);
+                price = roundOne(price, 6);
                 let change = await data[currency][`${vsCurrency}_24h_change`].toFixed(2);
                 
                 return { id, currency, vsCurrency, price, change };
