@@ -137,7 +137,6 @@ function App() {
                 <option value="eur">(EUR) Euro</option>
                 <option value="gbp">(GBP) Pound</option>
                 <option value="jpy">(JPY) Yen</option>
-                <option value="btc">(BTC) Bitcoin</option>
             </select> 
         </div>
         <button type="submit">+</button>
