@@ -135,7 +135,7 @@ function App() {
             <select id="comparison-currency" onChange={handleChangeVsCurrency}>
                 <option value="usd">(USD) US-Dollar</option>
                 <option value="eur">(EUR) Euro</option>
-                <option value="gbp">(GBP) Great British Pound</option>
+                <option value="gbp">(GBP) Pound Sterling</option>
                 <option value="jpy">(JPY) Japanese Yen</option>
                 <option value="btc">(BTC) Bitcoin</option>
             </select> 
