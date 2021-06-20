@@ -199,6 +199,7 @@ button:hover {
 .currency-container {
     display: flex;
     align-items: center;
+    height: 82px;
 }
 
 img {
