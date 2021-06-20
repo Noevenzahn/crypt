@@ -62,7 +62,7 @@ form.field {
     margin-bottom: 35px;
 }
 div.field {
-    padding: 12px 17px 7px 12px;
+    padding: 4px 17px 1px 12px;
 }
 .field-positive {
     background-color: var(--field-background-positive);
