@@ -102,14 +102,6 @@ function App() {
     }
   }
 
-  // const clearList = () => {
-  //   setList([]);
-  // }
-  // const removeItem = (id) => {
-  //   setList(list.filter((item) => item.id !== id));
-  // }
-
-
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list))
   }, [list])

@@ -67,7 +67,7 @@ function List({ list, setList }) {
         {
             priceList.map(({ id, currency, vsCurrency, price, change }) => {
                 return (
-                    <div key={id} className={change >= 0 ? "field field-positive" : "field field-negative"}>
+                    <div key={id} className={change >= 0 ? "field field-positive" : "field field-negative"} onDoubleClick={()=> setList(list.filter((item) => item.id !== id))}>
                             <div className="currency-container">
                             <img alt="" src={handleLogo(currency)} />
                             <div>
@@ -77,7 +77,6 @@ function List({ list, setList }) {
                             <div className={ change >= 0 ? "change positive":"change negative"}>
                               <p>{change}%</p>
                             </div>
-                            {/* <button type="button" onClick={()=> setList(list.filter((item) => item.id !== id))}>-</button> */}
                         </div>
                     </div> 
                 )
