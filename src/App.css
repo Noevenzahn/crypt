@@ -22,6 +22,11 @@
     margin: 0;
 }
 
+body {
+    display: grid;
+    place-items: center;
+}
+
 /* vars für Abstände usw. festlegen? Können dann einfacher mit Mediaquerys geändert werden? */
 .loader {
     display: flex;
