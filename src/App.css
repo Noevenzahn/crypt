@@ -22,9 +22,11 @@
     margin: 0;
 }
 
-body {
-    display: grid;
-    place-items: center;
+@media screen and (min-width: 500px) {
+    body {
+        display: grid;
+        place-items: center;
+    }
 }
 
 /* vars für Abstände usw. festlegen? Können dann einfacher mit Mediaquerys geändert werden? */
