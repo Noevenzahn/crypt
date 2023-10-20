@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b14ef0a0-7a23-46c0-9f35-ac9e520f6810/deploy-status)](https://app.netlify.com/sites/crypt/deploys)
-
 # PWA to keep an eye on the crypto market
 
 Utilizing the [CoinGecko API](https://www.coingecko.com/), React, local storage, and a service worker, I've made a mobile-focused PWA.
